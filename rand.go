@@ -225,6 +225,10 @@ func IntN(n int) int {
 	return r.Intn(n)
 }
 
+func Int63() int64 {
+	return r.Int63()
+}
+
 func AlphaN(n int) string {
 	v := make([]string, n)
 	for i := 0; i < n; i++ {
@@ -258,6 +262,6 @@ func Email(segments ...string) string {
 		segments = append(segments, First(), Last())
 	}
 
-	email := fmt.Sprintf("%v+%v@example.com", strings.Join(segments, "."), r.Int63())
+	email := fmt.Sprintf("%v+%v@example.com", strings.Join(segments, "."), Int63())
 	return strings.ToLower(email)
 }
