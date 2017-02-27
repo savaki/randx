@@ -1,2 +1,5 @@
 # randx
-random library utilities for golang
+
+Utilities to generate random values for testing.
+
+
