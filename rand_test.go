@@ -2,6 +2,7 @@ package randx_test
 
 import (
 	"regexp"
+	"strings"
 	"testing"
 
 	"github.com/savaki/randx"
@@ -38,4 +39,10 @@ func TestIntN(t *testing.T) {
 		v := randx.IntN(max)
 		assert.True(t, v < max)
 	}
+}
+
+func TestUrl(t *testing.T) {
+	url := randx.Url("a", "b")
+	assert.True(t, strings.HasPrefix(url, "http://a.b."), "expected segments as prefix")
+	assert.True(t, strings.HasSuffix(url, ".example.com"), "example example.com root domain")
 }

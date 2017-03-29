@@ -3,6 +3,7 @@ package randx
 import (
 	"fmt"
 	"math/rand"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -264,4 +265,13 @@ func Email(segments ...string) string {
 
 	email := fmt.Sprintf("%v+%v@example.com", strings.Join(segments, "."), Int63())
 	return strings.ToLower(email)
+}
+
+func Url(segments ...string) string {
+	if len(segments) == 0 {
+		segments = append(segments, AlphaN(12))
+	}
+
+	segments = append(segments, strconv.FormatInt(Int63(), 10), "example.com")
+	return "http://" + strings.ToLower(strings.Join(segments, "."))
 }
